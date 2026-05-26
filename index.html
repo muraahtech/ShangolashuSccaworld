@@ -77,8 +77,12 @@
            GET A QUOTE
         </a>
 
-    <!-- Buttons + Mobile Menu Toggle -->
+  
+          <!-- Buttons + Mobile Menu Toggle -->
           <div class="flex items-center space-x-3">
+
+            <button onclick="showSignUp()" class="hidden md:block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Sign up</button>
+  
             <!-- Mobile Menu Icon -->
             <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none">
               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,7 +101,9 @@
             <a href="services.html" class="hover:text-orange-500 transition">Services</a>
             <a href="portfolio.html" class="hover:text-orange-500 transition">Portfolio</a>
             <a href="contact.html" class="hover:text-orange-500 transition">Contact</a>
+        <button onclick="showSignUp()" class="block w-full text-left px-6 py-2 text-white bg-blue-600 hover:bg-blue-700">Sign up</button> 
       </div>
+    </nav>
   
     <script>
       // Toggle mobile menu visibility
@@ -108,9 +114,6 @@
         mobileMenu.classList.toggle('hidden');
       });
     </script>
-
-</nav>
-
     <header class="relative h-screen flex items-center px-6 md:px-20">
         <div class="absolute inset-0">
             <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
