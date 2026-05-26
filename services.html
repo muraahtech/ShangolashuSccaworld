@@ -33,6 +33,10 @@
             width: 100%;
             perspective: 1400px; /* High depth perspective */
             perspective-origin: center 40%;
+            cursor: grab;
+        }
+        #slides-stage:active {
+            cursor: grabbing;
         }
         
         .service-slide {
@@ -47,6 +51,7 @@
             pointer-events: none;
             transform-style: preserve-3d;
             transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.7s ease, visibility 0.7s ease;
+            user-select: none;
         }
 
         /* Active center slide allows interactions */
@@ -106,7 +111,7 @@
         <div class="max-w-7xl mx-auto text-center mb-16">
             <h2 class="text-3xl md:text-5xl font-black uppercase tracking-wide">View Services</h2>
             <div class="w-24 h-1 orange-grad mx-auto mt-4 rounded-full"></div>
-            <p class="text-gray-400 text-xs md:text-sm mt-4 max-w-md mx-auto">Interact directly with our immersive 3D carousel presentation to explore our primary industrial solutions.</p>
+            <p class="text-gray-400 text-xs md:text-sm mt-4 max-w-md mx-auto">Swipe or drag directly over the 3D presentation stack to fluidly browse our structural services.</p>
         </div>
 
         <div class="max-w-7xl mx-auto px-2 relative">
@@ -114,7 +119,7 @@
                 
                 <div class="service-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Painting Services">
                     <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
-                        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80" alt="Painting Services" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&q=80" alt="Painting Services" class="w-full h-full object-cover" draggable="false">
                     </div>
                     <div class="px-2 pb-2">
                         <div class="flex items-center gap-3 mb-2">
@@ -129,7 +134,7 @@
 
                 <div class="service-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Scaffolding Hire">
                     <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80" alt="Scaffolding Hire" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80" alt="Scaffolding Hire" class="w-full h-full object-cover" draggable="false">
                     </div>
                     <div class="px-2 pb-2">
                         <div class="flex items-center gap-3 mb-2">
@@ -144,7 +149,7 @@
 
                 <div class="service-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Pickling & Cleaning">
                     <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
-                        <img src="https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&q=80" alt="Pickling & Passivation" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&q=80" alt="Pickling & Passivation" class="w-full h-full object-cover" draggable="false">
                     </div>
                     <div class="px-2 pb-2">
                         <div class="flex items-center gap-3 mb-2">
@@ -159,7 +164,7 @@
 
                 <div class="service-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Civil Engineering">
                     <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
-                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80" alt="Civil Engineering" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80" alt="Civil Engineering" class="w-full h-full object-cover" draggable="false">
                     </div>
                     <div class="px-2 pb-2">
                         <div class="flex items-center gap-3 mb-2">
@@ -174,7 +179,7 @@
 
                 <div class="service-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Rope Access">
                     <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Rope Access" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" alt="Rope Access" class="w-full h-full object-cover" draggable="false">
                     </div>
                     <div class="px-2 pb-2">
                         <div class="flex items-center gap-3 mb-2">
@@ -189,7 +194,7 @@
 
                 <div class="service-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Building Billboards">
                     <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
-                        <img src="https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&q=80" alt="Building Billboards" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&q=80" alt="Building Billboards" class="w-full h-full object-cover" draggable="false">
                     </div>
                     <div class="px-2 pb-2">
                         <div class="flex items-center gap-3 mb-2">
@@ -204,7 +209,7 @@
 
                 <div class="service-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Air-Conditioning">
                     <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" alt="Air Conditioning" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80" alt="Air Conditioning" class="w-full h-full object-cover" draggable="false">
                     </div>
                     <div class="px-2 pb-2">
                         <div class="flex items-center gap-3 mb-2">
@@ -219,7 +224,7 @@
 
                 <div class="service-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Equipment Hire">
                     <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80" alt="Construction Equipment" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80" alt="Construction Equipment" class="w-full h-full object-cover" draggable="false">
                     </div>
                     <div class="px-2 pb-2">
                         <div class="flex items-center gap-3 mb-2">
@@ -234,35 +239,11 @@
 
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mt-12 select-none max-w-5xl mx-auto">
-                
-                <div onclick="prevSlide()" class="group flex items-center justify-center md:justify-start gap-3 bg-white/5 border border-white/10 rounded-2xl py-3 px-5 cursor-pointer hover:border-orange-500/40 hover:bg-white/10 transition duration-300">
-                    <div class="p-2.5 bg-white/5 rounded-xl group-hover:orange-grad text-white transition shadow">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
-                    </div>
-                    <div class="text-left hidden sm:block">
-                        <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-widest">Previous</span>
-                        <span id="prev-preview-label" class="block text-xs font-semibold text-gray-400 group-hover:text-white transition line-clamp-1">---</span>
-                    </div>
+            <div class="flex flex-col items-center justify-center py-2 mt-4 select-none max-w-5xl mx-auto">
+                <div id="slide-indicators" class="orange-grad text-white px-5 py-1.5 rounded-full text-xs font-black tracking-wider uppercase shadow-lg">
+                    Slide 1 of 8
                 </div>
-
-                <div class="flex flex-col items-center justify-center py-2 order-first md:order-none">
-                    <div id="slide-indicators" class="orange-grad text-white px-5 py-1.5 rounded-full text-xs font-black tracking-wider uppercase shadow-lg">
-                        Slide 1 of 8
-                    </div>
-                    <span id="current-viewport-name" class="text-base font-black text-orange-500 uppercase tracking-widest mt-3 text-center line-clamp-1">Loading...</span>
-                </div>
-
-                <div onclick="nextSlide()" class="group flex items-center justify-center md:justify-end gap-3 bg-white/5 border border-white/10 rounded-2xl py-3 px-5 cursor-pointer hover:border-orange-500/40 hover:bg-white/10 transition duration-300">
-                    <div class="text-right hidden sm:block">
-                        <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-widest">Next Up</span>
-                        <span id="next-preview-label" class="block text-xs font-semibold text-gray-400 group-hover:text-white transition line-clamp-1">---</span>
-                    </div>
-                    <div class="p-2.5 bg-white/5 rounded-xl group-hover:orange-grad text-white transition shadow">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
-                    </div>
-                </div>
-
+                <span id="current-viewport-name" class="text-base font-black text-orange-500 uppercase tracking-widest mt-3 text-center line-clamp-1">Loading...</span>
             </div>
         </div>
     </section>
@@ -316,9 +297,6 @@
         // Premium 3D Cover Flow Logic 
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.service-slide');
-        
-        const prevLabel = document.getElementById('prev-preview-label');
-        const nextLabel = document.getElementById('next-preview-label');
         const currentLabel = document.getElementById('current-viewport-name');
         const indicatorLabel = document.getElementById('slide-indicators');
 
@@ -327,13 +305,9 @@
             else if (index < 0) { currentSlideIndex = slides.length - 1; }
             else { currentSlideIndex = index; }
 
-            const prevIndex = (currentSlideIndex === 0) ? slides.length - 1 : currentSlideIndex - 1;
-            const nextIndex = (currentSlideIndex === slides.length - 1) ? 0 : currentSlideIndex + 1;
-
             slides.forEach((slide, i) => {
                 let offset = i - currentSlideIndex;
                 
-                // Handle looping calculations smoothly
                 if (offset < -Math.floor(slides.length / 2)) offset += slides.length;
                 if (offset > Math.floor(slides.length / 2)) offset -= slides.length;
 
@@ -343,17 +317,14 @@
                     slide.style.opacity = (absOffset === 0) ? "1" : (absOffset === 1) ? "0.45" : "0.15";
                     slide.style.visibility = "visible";
                     
-                    // Dynamic layout adaptive constraints mapping based on responsive widths
                     let width = window.innerWidth;
-                    let spacingFactor = 280; // Desktop default
-                    let rotationAngle = -55; // Desktop default
+                    let spacingFactor = 280; 
+                    let rotationAngle = -55; 
 
                     if (width < 640) {
-                        // Phone Layout Adjustments
                         spacingFactor = 70;
                         rotationAngle = -30;
                     } else if (width < 1024) {
-                        // Tablet Layout Adjustments
                         spacingFactor = 160;
                         rotationAngle = -45;
                     }
@@ -363,7 +334,6 @@
                     let scale = 1 - (absOffset * 0.18);
                     let zIndex = 50 - absOffset;
 
-                    // Perfect center offset handling with standard perspective space
                     slide.style.transform = `translateX(calc(-50% + ${transX}px)) scale(${scale}) rotateY(${rotateY}deg)`;
                     slide.style.zIndex = zIndex;
 
@@ -380,25 +350,54 @@
                 }
             });
 
-            // Extract titles
             const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
-            const prevTitle = slides[prevIndex].getAttribute('data-title');
-            const nextTitle = slides[nextIndex].getAttribute('data-title');
-
-            // Inject labels
             currentLabel.textContent = currentTitle;
-            prevLabel.textContent = prevTitle;
-            nextLabel.textContent = nextTitle;
             indicatorLabel.textContent = `Slide ${currentSlideIndex + 1} of ${slides.length}`;
         }
 
-        function nextSlide() {
-            updateSliderInterface(currentSlideIndex + 1);
+        function nextSlide() { updateSliderInterface(currentSlideIndex + 1); }
+        function prevSlide() { updateSliderInterface(currentSlideIndex - 1); }
+
+        // Touch & Drag Gesture Engine Configuration
+        const stage = document.getElementById('slides-stage');
+        let startX = 0;
+        let isDragging = false;
+
+        // Unified start logic
+        function dragStart(e) {
+            isDragging = true;
+            startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
         }
 
-        function prevSlide() {
-            updateSliderInterface(currentSlideIndex - 1);
+        // Unified move logic tracking vector offsets
+        function dragMove(e) {
+            if (!isDragging) return;
+            const currentX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            const diffX = startX - currentX;
+
+            // Trigger threshold shifts
+            if (diffX > 60) {
+                nextSlide();
+                isDragging = false; 
+            } else if (diffX < -60) {
+                prevSlide();
+                isDragging = false; 
+            }
         }
+
+        function dragEnd() {
+            isDragging = false;
+        }
+
+        // Touch Setup (Smartphones/Tablets)
+        stage.addEventListener('touchstart', dragStart, { passive: true });
+        stage.addEventListener('touchmove', dragMove, { passive: true });
+        stage.addEventListener('touchend', dragEnd);
+
+        // Mouse Drag Setup (Desktops)
+        stage.addEventListener('mousedown', dragStart);
+        window.addEventListener('mousemove', dragMove);
+        window.addEventListener('mouseup', dragEnd);
 
         // Initialize and lock responsiveness
         document.addEventListener('DOMContentLoaded', () => updateSliderInterface(0));
