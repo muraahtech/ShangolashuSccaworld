@@ -9,6 +9,29 @@
         .orange-grad { background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); }
         .hero-overlay { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), #0F172A); }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* Optimized Hero Background Container Layout for Responsiveness */
+        .hero-bg-container {
+            background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Tablet viewpoint adjustments */
+        @media (max-width: 1024px) {
+            .hero-bg-container {
+                background-position: 45% center;
+            }
+        }
+
+        /* Mobile viewpoint adjustments */
+        @media (max-width: 640px) {
+            .hero-bg-container {
+                background-position: 35% center;
+                background-attachment: scroll;
+            }
+        }
     </style>
 </head>
 <body class="bg-[#0F172A] text-white font-sans">
@@ -17,102 +40,84 @@
         <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.963-.505-5.701-1.467l-6.182 1.692zm6.114-3.535l.341.203c1.42.845 3.051 1.291 4.718 1.291 4.904 0 8.895-3.991 8.895-8.895 0-2.376-.925-4.609-2.604-6.289s-3.913-2.604-6.289-2.604c-4.904 0-8.895 3.991-8.895 8.895 0 1.782.532 3.513 1.541 4.996l.223.327-.964 3.524 3.619-.991z"/></svg>
     </a>
 
-    <nav class="fixed w-full z-50 bg-[#0F172A]/90 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-                <img src="joe.png" 
-              alt="LOK8it Logo" 
-              class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain">
-          <span class="text-[10px] sm:text-xs text-white">  Lets Build A City </span>
+    <nav class="fixed w-full z-50 bg-[#0F172A]/90 backdrop-blur-md border-b border-white/10 px-6 py-4">
+        <div class="flex justify-between items-center">
+            
+            <div class="flex items-center gap-3">
+                <img src="joe.png" alt="LOK8it Logo" class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain">
+                <span class="text-[10px] sm:text-xs text-white"> Lets Build A City </span>
+            </div>
+
+            <div class="hidden lg:flex gap-6 text-[10px] font-bold uppercase tracking-widest">
+                <a href="index.html" class="hover:text-orange-500 transition">Home</a>
+                <a href="about us.html" class="hover:text-orange-500 transition">About Us</a>
+                <a href="services.html" class="hover:text-orange-500 transition">Services</a>
+                <a href="portfolio.html" class="hover:text-orange-500 transition">Portfolio</a>
+                <a href="contact.html" class="hover:text-orange-500 transition">Contact</a>
+            </div>
+
+            <a href="contact.html" class="hidden lg:block orange-grad px-5 py-2 rounded-full text-xs font-bold uppercase shadow-lg">Get A Quote</a>
+
+            <div class="flex items-center space-x-3 lg:hidden">
+                <button id="menu-btn" class="text-orange-500 hover:text-orange-600 focus:outline-none z-[110] p-1 bg-slate-800/50 rounded-lg border border-white/10">
+                    <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
-        <div class="hidden lg:flex gap-6 text-[10px] font-bold uppercase tracking-widest">
-            <a href="index.html" class="hover:text-orange-500 transition">Home</a>
-            <a href="about us.html" class="hover:text-orange-500 transition">About Us</a>
-            <a href="services.html" class="hover:text-orange-500 transition">Services</a>
-            <a href="portfolio.html" class="hover:text-orange-500 transition">Portfolio</a>
-            <a href="contact.html" class="hover:text-orange-500 transition">Contact</a>
+
+        <div id="menu-backdrop" class="fixed inset-0 bg-slate-950/70 z-[90] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm"></div>
+      
+        <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[290px] bg-[#0F172A] z-[100] shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col p-6 pt-24 border-l-2 border-orange-500">
+            <div class="flex flex-col space-y-4 text-sm font-bold uppercase tracking-wider">
+                <a href="index.html" class="text-gray-300 hover:text-orange-500 hover:bg-white/5 px-4 py-3 rounded-xl transition">Home</a>
+                <a href="about us.html" class="text-orange-500 bg-white/5 px-4 py-3 rounded-xl border-l-4 border-orange-500">About Us</a>
+                <a href="services.html" class="text-gray-300 hover:text-orange-500 hover:bg-white/5 px-4 py-3 rounded-xl transition">Services</a>
+                <a href="portfolio.html" class="text-gray-300 hover:text-orange-500 hover:bg-white/5 px-4 py-3 rounded-xl transition">Portfolio</a>
+                <a href="contact.html" class="text-gray-300 hover:text-orange-500 hover:bg-white/5 px-4 py-3 rounded-xl transition">Contact</a>
+            </div>
         </div>
-        <a href="contact.html" class="orange-grad px-5 py-2 rounded-full text-xs font-bold uppercase">Get A Quote</a>
-            <!-- Buttons + Mobile Menu Toggle -->
-          <div class="flex items-center space-x-3">
-            <!-- Mobile Menu Icon -->
-            <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Mobile Dropdown Menu -->
-      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-  <a href="index.html" class="hover:text-orange-500 transition">Home</a>
-            <a href="about us.html" class="hover:text-orange-500 transition">About Us</a>
-            <a href="services.html" class="hover:text-orange-500 transition">Services</a>
-            <a href="portfolio.html" class="hover:text-orange-500 transition">Portfolio</a>
-            <a href="contact.html" class="hover:text-orange-500 transition">Contact</a>
-      </div>
-  
-    <script>
-      // Toggle mobile menu visibility
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-  
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    </script>
     </nav>
 
-    <header class="relative h-[60vh] flex items-center px-6 md:px-20">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80" class="w-full h-full object-cover">
-            <div class="absolute inset-0 hero-overlay"></div>
+    <header class="relative min-h-[75vh] lg:h-[60vh] flex items-center px-6 md:px-20 pt-24 lg:pt-0 hero-bg-container">
+        <div class="absolute inset-0 hero-overlay"></div>
+        <div class="relative z-10 flex flex-col lg:flex-row justify-between items-start gap-10 w-full">
+
+            <div class="max-w-3xl">
+                <h5 class="text-orange-500 font-bold tracking-widest uppercase mb-4 italic">Learn Our Story</h5>
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-black mb-6 uppercase leading-tight">
+                    About <br>
+                    <span class="text-orange-500">Shangolashu</span>
+                </h1>
+            </div>
+
+            <div class="w-full lg:w-1/2">
+                <div class="p-6 sm:p-10 glass rounded-3xl border-t-4 border-t-orange-500">
+                    <h2 class="text-2xl font-black uppercase mb-4">Our Vision</h2>
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+                        Our mission is to provide dependable, high-quality painting,
+                        scaffolding hire, and preservation services that ensure the safety,
+                        longevity, and aesthetic value of buildings and infrastructure.
+                        We are committed to delivering each project with professionalism,
+                        integrity, and a strong focus on client satisfaction.
+                    </p>  
+                </div>
+            </div>
         </div>
-        <div class="relative z-10 flex flex-col md:flex-row justify-between items-start gap-10">
-
-    <!-- Left Side Heading -->
-    <div class="max-w-3xl">
-        <h5 class="text-orange-500 font-bold tracking-widest uppercase mb-4 italic">
-            Learn Our Story
-        </h5>
-
-        <h1 class="text-5xl md:text-7xl font-black mb-6 uppercase leading-tight">
-            About <br>
-            <span class="text-orange-500">Shangolashu</span>
-        </h1>
-    </div>
-
-    <!-- Right Side Mission -->
-    <div class="md:w-1/2">
-        <div class="p-10 glass rounded-3xl border-t-4 border-t-orange-500">
-        <div class="grid md:grid-cols-5 gap-7"></div>
-        <h2 class="text-2xl font-black uppercase mb-4">Our Vision
-        </h2>
- <p class="text-gray-300 leading-relaxed">
-            Our mission is to provide dependable, high-quality painting,
-            scaffolding hire, and preservation services that ensure the safety,
-            longevity, and aesthetic value of buildings and infrastructure.
-            We are committed to delivering each project with professionalism,
-            integrity, and a strong focus on client satisfaction.
-        </p>  
-    </div>
-</div>
     </header>
 
     <section class="py-24 px-6 md:px-20 bg-[#0F172A]">
-        <div class="grid md:grid-cols-2 gap-12">
-            <div class="p-10 glass rounded-3xl border-t-4 border-t-orange-500">
+        <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div class="p-8 sm:p-10 glass rounded-3xl border-t-4 border-t-orange-500">
                 <h3 class="text-2xl font-black uppercase mb-4">Our Vision</h3>
-                  <p class="text-gray-400 mb-6">Our vision is to become a trusted industry leader in painting, scaffolding, and preservation solutions by consistently exceeding expectations, prioritising safety and sustainability, and building long-term partnerships with our clients.</p>
-                    <p class="text-gray-400">We are committed to delivering quality workmanship, innovative solutions, and reliable service on every project we undertake.
-Through professionalism, integrity, and continuous improvement, we aim to create lasting value for our clients and communities.</p>
+                <p class="text-gray-400 mb-6 text-sm sm:text-base">Our vision is to become a trusted industry leader in painting, scaffolding, and preservation solutions by consistently exceeding expectations, prioritising safety and sustainability, and building long-term partnerships with our clients.</p>
+                <p class="text-gray-400 text-sm sm:text-base">We are committed to delivering quality workmanship, innovative solutions, and reliable service on every project we undertake. Through professionalism, integrity, and continuous improvement, we aim to create lasting value for our clients and communities.</p>
             </div>
-            <div class="p-10 glass rounded-3xl border-t-4 border-t-orange-500">
+            <div class="p-8 sm:p-10 glass rounded-3xl border-t-4 border-t-orange-500">
                 <h3 class="text-2xl font-black uppercase mb-4">Our Mission</h3>
-                <p class="text-gray-400 leading-relaxed">
-                    Our mission is to provide dependable, high-quality painting, scaffolding hire, and preservation services that ensure the safety, longevity, and aesthetic value of buildings and infrastructure. We are committed to delivering each project with professionalism, integrity, and a strong focus on client satisfaction.</p>
+                <p class="text-gray-400 leading-relaxed text-sm sm:text-base">
+                    Our mission is to provide dependable, high-quality painting, scaffolding hire, and preservation services that ensure the safety, longevity, and aesthetic value of buildings and infrastructure. We are committed to delivering each project with professionalism, integrity, and a strong focus on client satisfaction.
                 </p>
             </div>
         </div>
@@ -122,35 +127,35 @@ Through professionalism, integrity, and continuous improvement, we aim to create
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-center">
             <div class="md:w-1/2">
                 <h2 class="text-orange-600 font-bold uppercase tracking-widest mb-4">Why Us?</h2>
-                <h3 class="text-4xl font-black mb-8 uppercase">What Makes Us Different</h3>
+                <h3 class="text-3xl sm:text-4xl font-black mb-8 uppercase leading-tight">What Makes Us Different</h3>
                 <div class="space-y-6">
                     <div class="flex gap-4">
                         <div class="text-orange-500 font-bold text-xl">01</div>
-                        <p class="text-gray-600 font-medium">Commitment to Safety: We prioritize the life of our workers and the integrity of your structure above all else.</p>
+                        <p class="text-gray-600 font-medium text-sm sm:text-base">Commitment to Safety: We prioritize the life of our workers and the integrity of your structure above all else.</p>
                     </div>
                     <div class="flex gap-4">
                         <div class="text-orange-500 font-bold text-xl">02</div>
-                        <p class="text-gray-600 font-medium">Skilled Workmanship: Our team consists of certified experts who understand industrial and residential requirements.</p>
+                        <p class="text-gray-600 font-medium text-sm sm:text-base">Skilled Workmanship: Our team consists of certified experts who understand industrial and residential requirements.</p>
                     </div>
                     <div class="flex gap-4">
                         <div class="text-orange-500 font-bold text-xl">03</div>
-                        <p class="text-gray-600 font-medium">Customer-Focused Service: We build long-term partnerships, ensuring every project is finished to your highest standards.</p>
+                        <p class="text-gray-600 font-medium text-sm sm:text-base">Customer-Focused Service: We build long-term partnerships, ensuring every project is finished to your highest standards.</p>
                     </div>
                 </div>
             </div>
-            <div class="md:w-1/2">
+            <div class="md:w-1/2 w-full">
                 <div class="rounded-3xl overflow-hidden shadow-2xl">
-                    <img src="hazard.jpeg" alt="Construction Quality">
+                    <img src="hazard.jpeg" alt="Construction Quality" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
- <footer class="bg-black/40 border-t border-white/10 py-10 px-6 md:px-20">
+
+    <footer class="bg-black/40 border-t border-white/10 py-10 px-6 md:px-20">
         <div class="flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="text-center md:text-left">
                 <p class="text-gray-500 text-sm">
                     &copy; <span id="year"></span> Shangolashu Sccaworld. All Rights Reserved 2026 .
-                 
                 </p>
             </div>
             <div class="flex gap-6 text-gray-400 text-xs uppercase font-bold tracking-tighter">
@@ -159,3 +164,42 @@ Through professionalism, integrity, and continuous improvement, we aim to create
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Toggle mobile side-slide menu panel visibility frameworks
+        const menuBtn = document.getElementById('menu-btn');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const backdrop = document.getElementById('menu-backdrop');
+      
+        function toggleSideMenu() {
+            const isOpen = mobileMenu.classList.contains('translate-x-0');
+      
+            if (!isOpen) {
+                // Open Slide Menu
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+                backdrop.classList.remove('hidden');
+                setTimeout(() => backdrop.classList.add('opacity-100'), 10);
+                
+                // Turn Menu Button Icon into a Close 'X' symbol
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                // Close Slide Menu
+                mobileMenu.classList.remove('translate-x-0');
+                mobileMenu.classList.add('translate-x-full');
+                backdrop.classList.remove('opacity-100');
+                setTimeout(() => backdrop.classList.add('hidden'), 300);
+                
+                // Return Icon back to the standard Hamburger lines
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        }
+      
+        menuBtn.addEventListener('click', toggleSideMenu);
+        backdrop.addEventListener('click', toggleSideMenu);
+    </script>
+</body>
+</html>
