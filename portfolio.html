@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | Shangolashu Sccaworld | Building A City</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .orange-grad { background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); }
+        .hero-overlay { 
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.6), #0F172A);    
+            line-height: 1.9;
+            background-size: cover;
+        }
+        .glass { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); }
+        
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: all 0.3s ease-in-out;
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* 3D Cover Flow Stage Config */
+        #slides-stage {
+            position: relative;
+            width: 100%;
+            perspective: 1400px;
+            perspective-origin: center 40%;
+        }
+        
+        .project-slide {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100%;
+            max-width: 550px;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.7s ease, visibility 0.7s ease;
+        }
+
+        .project-slide.active-focus {
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="bg-[#0F172A] text-white font-sans">
+
+    <!-- WhatsApp Floating Icon -->
+    <a href="https://wa.me/+27670489847" target="_blank" class="fixed bottom-6 right-6 z-[100] bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-110 transition-transform">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.963-.505-5.701-1.467l-6.182 1.692zm6.114-3.535l.341.203c1.42.845 3.051 1.291 4.718 1.291 4.904 0 8.895-3.991 8.895-8.895 0-2.376-.925-4.609-2.604-6.289s-3.913-2.604-6.289-2.604c-4.904 0-8.895 3.991-8.895 8.895 0 1.782.532 3.513 1.541 4.996l.223.327-.964 3.524 3.619-.991z"/></svg>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-[100] glass border-b border-white/10 px-6 md:px-20 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2 md:gap-3">
+           <img src="joe.png" alt="Logo" class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain">
+           <span class="text-[10px] sm:text-xs text-white uppercase tracking-wider">Lets Build A City</span>
+        </div>
+        
+        <div class="hidden lg:flex gap-6 text-xs font-bold uppercase tracking-widest">
+            <a href="index.html" class="hover:text-orange-500 transition">Home</a>
+            <a href="about us.html" class="hover:text-orange-500 transition">About Us</a>
+            <a href="services.html" class="hover:text-orange-500 transition">Services</a>
+            <a href="portfolio.html" class="text-orange-500 transition">Portfolio</a>
+            <a href="contact.html" class="hover:text-orange-500 transition">Contact</a>
+        </div>
+
+        <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="fixed top-[68px] md:top-[81px] left-0 w-full glass border-b border-white/10 z-[90] lg:hidden px-6 py-6 flex flex-col gap-4 text-xs font-bold uppercase tracking-widest">
+        <a href="index.html" class="hover:text-orange-500 transition py-2">Home</a>
+        <a href="about us.html" class="hover:text-orange-500 transition py-2">About Us</a>
+        <a href="services.html" class="hover:text-orange-500 transition py-2">Services</a>
+        <a href="portfolio.html" class="text-orange-500 transition py-2">Portfolio</a>
+        <a href="contact.html" class="hover:text-orange-500 transition py-2">Contact</a>
+    </div>
+
+    <!-- Header Hero Section -->
+    <header class="relative h-[50vh] flex items-center px-6 md:px-20">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80" class="w-full h-full object-cover" alt="Structural Engineering Banner">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+        <div class="relative z-10 max-w-3xl pt-20 md:pt-0">
+            <h5 class="text-orange-500 font-bold tracking-widest uppercase mb-3 italic text-sm md:text-base">“Engineering Excellence In Action”</h5>
+            <h1 class="text-4xl md:text-6xl font-black mb-4 uppercase leading-tight">Our Portfolio</h1>
+            <p class="text-gray-300 text-sm md:text-base max-w-2xl leading-relaxed">A comprehensive overview of our capabilities, infrastructure achievements, organizational oversight, and industrial track records.</p>
+        </div>
+    </header>
+
+    <!-- 1. Company Introduction & Leadership (Including CEO Image) -->
+    <section class="py-20 px-6 md:px-20 bg-slate-900/50 border-b border-white/5">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Company Intro Text Details -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="flex items-center gap-2">
+                    <span class="w-8 h-[2px] bg-orange-500"></span>
+                    <h5 class="text-orange-500 text-xs font-bold uppercase tracking-widest">Executive Statement</h5>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight">Company Introduction</h2>
+                <div class="w-20 h-1 orange-grad rounded-full"></div>
+                
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed font-light">
+                    Shangolashu delivers professional construction, civil engineering, scaffolding, rope access, and industrial solutions with a focus on quality, safety, and reliability.
+                </p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    By combining expert technical methodologies with reliable executive oversight, we provide critical modern infrastructure updates across residential, commercial, and industrial operational landscapes without execution delay overheads.
+                </p>
+                
+                <!-- 5. Client Trust / Experience Matrix -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/10">
+                    <div>
+                        <span class="block text-3xl font-black text-orange-500">10+</span>
+                        <span class="block text-[10px] text-gray-400 uppercase tracking-wider font-bold mt-1">Years Experience</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-black text-white">150+</span>
+                        <span class="block text-[10px] text-gray-400 uppercase tracking-wider font-bold mt-1">Completed Projects</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-black text-orange-500">100%</span>
+                        <span class="block text-[10px] text-gray-400 uppercase tracking-wider font-bold mt-1">Client Satisfaction</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-black text-white">Reliable</span>
+                        <span class="block text-[10px] text-gray-400 uppercase tracking-wider font-bold mt-1">Partnerships</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CEO Image Container -->
+            <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                <div class="relative group p-3 bg-slate-900 rounded-3xl border border-white/10 shadow-2xl max-w-sm w-full">
+                    <div class="overflow-hidden rounded-2xl aspect-[4/5] bg-slate-950">
+                        <!-- Referencing joeman_2.jpg verbatim as requested -->
+                        <img src="joeman.jpg" alt="Shangolashu CEO" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                    </div>
+                    <!-- Absolute Frame Accent overlay -->
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 orange-grad rounded-2xl -z-10 opacity-40 blur-sm"></div>
+                </div>
+                <div class="text-center mt-6">
+                    <h4 class="text-xl font-black uppercase text-white tracking-wide">Chief Executive Officer</h4>
+                    <span class="text-xs font-bold uppercase text-orange-500 tracking-widest mt-1 block">Shangolashu Sccaworld</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. Completed Projects Showcase Section (3D Cover Flow Carousel) -->
+    <section class="py-20 px-4 overflow-hidden bg-slate-950">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-black uppercase tracking-wide">Completed Projects</h2>
+            <div class="w-24 h-1 orange-grad mx-auto mt-4 rounded-full"></div>
+            <p class="text-gray-400 text-xs md:text-sm mt-4 max-w-md mx-auto">Explore our immersive industrial case study archives using our functional interface controllers.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-2 relative">
+            <div id="slides-stage" class="h-[430px] sm:h-[480px] md:h-[580px]">
+                
+                <!-- Project Card 1 -->
+                <div class="project-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Johannesburg High-Rise Setup">
+                    <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
+                        <img src="rope access.png" alt="High-rise rope access maintenance project" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-2 pb-2">
+                        <div class="flex flex-col mb-2">
+                            <span class="text-[10px] text-orange-500 font-bold uppercase tracking-widest mb-0.5">Service: Rope Access</span>
+                            <h3 class="text-lg md:text-2xl font-black uppercase text-white tracking-tight">High-Rise Asset Maintenance</h3>
+                        </div>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light line-clamp-3">
+                            High-rise rope access maintenance project completed in Johannesburg for a commercial building. Deployed critical protection coatings and safety inspections with zero site disruption.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Civil Infrastructure Anchor">
+                    <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
+                        <img src="civil.jpg" alt="Civil Engineering Construction Site" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-2 pb-2">
+                        <div class="flex flex-col mb-2">
+                            <span class="text-[10px] text-orange-500 font-bold uppercase tracking-widest mb-0.5">Service: Civil Engineering</span>
+                            <h3 class="text-lg md:text-2xl font-black uppercase text-white tracking-tight">Urban Concrete Foundations</h3>
+                        </div>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light line-clamp-3">
+                            Strategic infrastructure layout development, heavy base earthworks excavation, and structured structural site grading matching demanding project timelines perfectly.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="Industrial Safety Containment">
+                    <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
+                        <img src="958.jpeg" alt="Hazardous Chemical Solutions Project" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-2 pb-2">
+                        <div class="flex flex-col mb-2">
+                            <span class="text-[10px] text-orange-500 font-bold uppercase tracking-widest mb-0.5">Service: Hazardous Chemical Solutions</span>
+                            <h3 class="text-lg md:text-2xl font-black uppercase text-white tracking-tight">Hazardchem Protocol Integration</h3>
+                        </div>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light line-clamp-3">
+                            Deployed professional hazardous materials protection storage solutions and environment safety-compliant mitigation control framework models for critical commercial zones.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-slide bg-slate-900 rounded-2xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-white/10" data-title="High-Reach Access Staging">
+                    <div class="w-full h-[200px] sm:h-[240px] md:h-[360px] bg-slate-950 rounded-xl overflow-hidden mb-5">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80" alt="Scaffolding Hire Project" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-2 pb-2">
+                        <div class="flex flex-col mb-2">
+                            <span class="text-[10px] text-orange-500 font-bold uppercase tracking-widest mb-0.5">Service: Scaffolding Hire</span>
+                            <h3 class="text-lg md:text-2xl font-black uppercase text-white tracking-tight">Modular Temporary Platforms</h3>
+                        </div>
+                        <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light line-clamp-3">
+                            Rigorous safety structural staging setups created for high-stress facade restoration works. Fully safety-compliant layouts built to handle extreme capacity metrics safely.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 3D Carousel Control Elements -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mt-12 select-none max-w-5xl mx-auto">
+                <div onclick="prevSlide()" class="group flex items-center justify-center md:justify-start gap-3 bg-white/5 border border-white/10 rounded-2xl py-3 px-5 cursor-pointer hover:border-orange-500/40 hover:bg-white/10 transition duration-300">
+                    <div class="p-2.5 bg-white/5 rounded-xl group-hover:orange-grad text-white transition shadow">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
+                    </div>
+                    <div class="text-left hidden sm:block">
+                        <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-widest">Previous</span>
+                        <span id="prev-preview-label" class="block text-xs font-semibold text-gray-400 group-hover:text-white transition line-clamp-1">---</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center justify-center py-2 order-first md:order-none">
+                    <div id="slide-indicators" class="orange-grad text-white px-5 py-1.5 rounded-full text-xs font-black tracking-wider uppercase shadow-lg">
+                        Project 1 of 4
+                    </div>
+                    <span id="current-viewport-name" class="text-base font-black text-orange-500 uppercase tracking-widest mt-3 text-center line-clamp-1">Loading Case History...</span>
+                </div>
+
+                <div onclick="nextSlide()" class="group flex items-center justify-center md:justify-end gap-3 bg-white/5 border border-white/10 rounded-2xl py-3 px-5 cursor-pointer hover:border-orange-500/40 hover:bg-white/10 transition duration-300">
+                    <div class="text-right hidden sm:block">
+                        <span class="block text-[10px] text-gray-500 font-bold uppercase tracking-widest">Next Up</span>
+                        <span id="next-preview-label" class="block text-xs font-semibold text-gray-400 group-hover:text-white transition line-clamp-1">---</span>
+                    </div>
+                    <div class="p-2.5 bg-white/5 rounded-xl group-hover:orange-grad text-white transition shadow">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. Services Offered Section Grid Layout -->
+    <section class="py-20 px-6 md:px-20 bg-slate-900 border-t border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h5 class="text-orange-500 font-bold tracking-widest uppercase text-xs mb-2">Our Capabilities</h5>
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight">Services Offered</h2>
+                <div class="w-16 h-1 orange-grad mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="p-8 bg-slate-950 rounded-2xl border border-white/5 hover:border-orange-500/50 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:orange-grad group-hover:text-white transition duration-300">🏗️</div>
+                    <h3 class="text-xl font-bold uppercase tracking-wide mb-2 text-white">Civil Engineering</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Infrastructure development, high-spec excavations, and detailed project site supervision protocols.</p>
+                </div>
+
+                <div class="p-8 bg-slate-950 rounded-2xl border border-white/5 hover:border-orange-500/50 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:orange-grad group-hover:text-white transition duration-300">🎨</div>
+                    <h3 class="text-xl font-bold uppercase tracking-wide mb-2 text-white">Painting</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Premium structural specialized liquid coatings curated for demanding ambient environment layers.</p>
+                </div>
+
+                <div class="p-8 bg-slate-950 rounded-2xl border border-white/5 hover:border-orange-500/50 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:orange-grad group-hover:text-white transition duration-300">🚧</div>
+                    <h3 class="text-xl font-bold uppercase tracking-wide mb-2 text-white">Scaffolding Hire</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Certified, robust structural modular system configurations designed for secure high-level scaffolding tasks.</p>
+                </div>
+
+                <div class="p-8 bg-slate-950 rounded-2xl border border-white/5 hover:border-orange-500/50 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:orange-grad group-hover:text-white transition duration-300">🧪</div>
+                    <h3 class="text-xl font-bold uppercase tracking-wide mb-2 text-white">Hazardous Chemical Solutions</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Safe chemical materials storage logistics management framework aligning directly with strict green codes.</p>
+                </div>
+
+                <div class="p-8 bg-slate-950 rounded-2xl border border-white/5 hover:border-orange-500/50 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:orange-grad group-hover:text-white transition duration-300">🧗</div>
+                    <h3 class="text-xl font-bold uppercase tracking-wide mb-2 text-white">Rope Access</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Swift work-at-height technical solutions omitting bulky ground setup frameworks cleanly.</p>
+                </div>
+
+                <div class="p-8 bg-slate-950 rounded-2xl border border-white/5 hover:border-orange-500/50 transition duration-300 group">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 text-2xl mb-6 group-hover:orange-grad group-hover:text-white transition duration-300">🖼️</div>
+                    <h3 class="text-xl font-bold uppercase tracking-wide mb-2 text-white">Billboard Installation</h3>
+                    <p class="text-gray-400 text-xs leading-relaxed">Heavy anchoring frameworks construction and high wind-stress frame placement execution.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Safety & Quality Standards Section -->
+    <section class="py-20 px-6 md:px-20 bg-slate-950 border-t border-white/5">
+        <div class="max-w-5xl mx-auto text-center space-y-6">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 text-orange-500 text-xs font-bold uppercase tracking-widest">
+                🛡️ Operational Compliance Mandate
+            </div>
+            <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight">Safety & Quality Standards</h2>
+            <div class="w-20 h-1 orange-grad mx-auto rounded-full"></div>
+            
+            <p class="text-gray-300 text-sm md:text-base max-w-3xl mx-auto leading-relaxed pt-2">
+                We follow strict safety procedures, use quality equipment, and ensure every project meets industry standards. Our workflows include regular risk evaluations, tool validation routines, and consistent training tracks to protect workforce integrity across all environments.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left pt-8 max-w-4xl mx-auto">
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 flex items-start gap-3">
+                    <span class="text-orange-500 mt-0.5">✔</span>
+                    <p class="text-xs text-gray-400 leading-relaxed">Rigorous regular component load tests and multi-tier structural quality checks on all components.</p>
+                </div>
+                <div class="p-4 bg-white/5 rounded-xl border border-white/10 flex items-start gap-3">
+                    <span class="text-orange-500 mt-0.5">✔</span>
+                    <p class="text-xs text-gray-400 leading-relaxed">Absolute adherence to international HSE hazard codes and zero-tolerance onsite risk management tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 border-t border-white/10 py-10 px-6 md:px-20">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <p class="text-gray-500 text-sm">
+                    &copy; <span id="year"></span> Shangolashu Sccaworld. All Rights Reserved.
+                </p>
+            </div>
+            <div class="flex gap-6 text-gray-400 text-xs uppercase font-bold tracking-tighter">
+                <a href="privacy.html" class="hover:text-white transition">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Slider & Menu Scripts -->
+    <script>
+        // Automatic Year update
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('active');
+            const isOpen = mobileMenu.classList.contains('active');
+            menuToggle.innerHTML = isOpen 
+                ? '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>'
+                : '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>';
+        }
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // 3D Cover Flow Slider System Logic
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.project-slide');
+        
+        const prevLabel = document.getElementById('prev-preview-label');
+        const nextLabel = document.getElementById('next-preview-label');
+        const currentLabel = document.getElementById('current-viewport-name');
+        const indicatorLabel = document.getElementById('slide-indicators');
+
+        function updateSliderInterface(index) {
+            if (index >= slides.length) { currentSlideIndex = 0; }
+            else if (index < 0) { currentSlideIndex = slides.length - 1; }
+            else { currentSlideIndex = index; }
+
+            const prevIndex = (currentSlideIndex === 0) ? slides.length - 1 : currentSlideIndex - 1;
+            const nextIndex = (currentSlideIndex === slides.length - 1) ? 0 : currentSlideIndex + 1;
+
+            slides.forEach((slide, i) => {
+                let offset = i - currentSlideIndex;
+                
+                if (offset < -Math.floor(slides.length / 2)) offset += slides.length;
+                if (offset > Math.floor(slides.length / 2)) offset -= slides.length;
+
+                const absOffset = Math.abs(offset);
+
+                if (absOffset <= 2) {
+                    slide.style.opacity = (absOffset === 0) ? "1" : (absOffset === 1) ? "0.45" : "0.15";
+                    slide.style.visibility = "visible";
+                    
+                    let isMobile = window.innerWidth < 768;
+                    let spacingFactor = isMobile ? 120 : 280;
+                    let rotationAngle = isMobile ? -35 : -55;
+
+                    let transX = offset * spacingFactor;
+                    let rotateY = offset * rotationAngle;
+                    let scale = 1 - (absOffset * 0.18);
+                    let zIndex = 50 - absOffset;
+
+                    slide.style.transform = `translateX(calc(-50% + ${transX}px)) scale(${scale}) rotateY(${rotateY}deg)`;
+                    slide.style.zIndex = zIndex;
+
+                    if (offset === 0) {
+                        slide.classList.add('active-focus');
+                    } else {
+                        slide.classList.remove('active-focus');
+                    }
+                } else {
+                    slide.style.opacity = "0";
+                    slide.style.visibility = "hidden";
+                    slide.style.transform = `translateX(-50%) scale(0.5) rotateY(0deg)`;
+                    slide.classList.remove('active-focus');
+                }
+            });
+
+            const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
+            const prevTitle = slides[prevIndex].getAttribute('data-title');
+            const nextTitle = slides[nextIndex].getAttribute('data-title');
+
+            currentLabel.textContent = currentTitle;
+            prevLabel.textContent = prevTitle;
+            nextLabel.textContent = nextTitle;
+            indicatorLabel.textContent = `Project ${currentSlideIndex + 1} of ${slides.length}`;
+        }
+
+        function nextSlide() { updateSliderInterface(currentSlideIndex + 1); }
+        function prevSlide() { updateSliderInterface(currentSlideIndex - 1); }
+
+        document.addEventListener('DOMContentLoaded', () => updateSliderInterface(0));
+        window.addEventListener('resize', () => updateSliderInterface(currentSlideIndex));
+    </script>
+</body>
+</html>
