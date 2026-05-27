@@ -31,7 +31,7 @@
 <body class="bg-[#0F172A] text-white font-sans">
 
     <!-- WhatsApp Floating Action Button -->
-    <a href="https://wa.me/27670489847" target="_blank" class="fixed bottom-6 right-6 z-[100] bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-110 transition-transform">
+    <a href="https://wa.me/27623607989" target="_blank" class="fixed bottom-6 right-6 z-[100] bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-110 transition-transform">
         <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.963-.505-5.701-1.467l-6.182 1.692zm6.114-3.535l.341.203c1.42.845 3.051 1.291 4.718 1.291 4.904 0 8.895-3.991 8.895-8.895 0-2.376-.925-4.609-2.604-6.289s-3.913-2.604-6.289-2.604c-4.904 0-8.895 3.991-8.895 8.895 0 1.782.532 3.513 1.541 4.996l.223.327-.964 3.524 3.619-.991z"/></svg>
     </a>
 
@@ -57,7 +57,7 @@
         </button>
     </nav>
 
-    <!-- Mobile Dropdown Menu (Matches other pages precisely down to font-size, tracking, and styling) -->
+    <!-- Mobile Dropdown Menu -->
     <div id="mobile-menu" class="fixed top-[68px] md:top-[81px] left-0 w-full glass border-b border-white/10 z-[90] lg:hidden px-6 py-6 flex flex-col gap-4 text-xs font-bold uppercase tracking-widest">
         <a href="index.html" class="hover:text-orange-500 transition py-2">Home</a>
         <a href="about us.html" class="hover:text-orange-500 transition py-2">About Us</a>
@@ -89,58 +89,70 @@
             <h2 class="text-2xl md:text-4xl font-black uppercase tracking-wide mb-2">Get In Touch</h2>
             <div class="w-16 h-1 orange-grad mb-8 rounded-full"></div>
             
-            <!-- Three-line sentence placeholder requested -->
             <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-8 font-light">
                 Our specialized structural support and project management coordination desk is standing by to help turn your developmental blue-prints into scalable community realities. Reach out via our direct communication channels below to experience professional, highly reliable project turnarounds tailored specifically to your budgetary allocations. Let us construct sustainable modern frameworks together and strategically lay out the foundations required to build a cleaner city.
             </p>
 
-            <div class="space-y-6">
-                <!-- Phone Element -->
-                <div class="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-orange-500 transition-colors">
-                    <div class="orange-grad p-3 rounded-xl">
+            <div class="space-y-4">
+                <!-- Phone Element / Click to Call Button -->
+                <a href="tel:0623607989" class="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-orange-500 transition-colors group">
+                    <div class="orange-grad p-3 rounded-xl group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-xs uppercase font-bold tracking-wider text-orange-500">Call/WhatsApp Support</h4>
-                        <a href="tel:0623607989" class="text-sm md:text-lg font-bold hover:underline tracking-wide block mt-0.5">0623607989</a>
+                        <h4 class="text-xs uppercase font-bold tracking-wider text-orange-500">Call Log / Direct Line</h4>
+                        <span class="text-sm md:text-lg font-bold tracking-wide block mt-0.5">0623607989</span>
                     </div>
-                </div>
+                </a>
+
+                <!-- WhatsApp Integration Button with Logo -->
+                <a href="https://wa.me/27623607989" target="_blank" class="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-[#25D366] transition-colors group">
+                    <div class="bg-[#25D366] p-3 rounded-xl group-hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.48 5.228 3.48 8.404c0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.963-.505-5.701-1.467l-6.182 1.692zm6.114-3.535l.341.203c1.42.845 3.051 1.291 4.718 1.291 4.904 0 8.895-3.991 8.895-8.895 0-2.376-.925-4.609-2.604-6.289s-3.913-2.604-6.289-2.604c-4.904 0-8.895 3.991-8.895 8.895 0 1.782.532 3.513 1.541 4.996l.223.327-.964 3.524 3.619-.991z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xs uppercase font-bold tracking-wider text-[#25D366]">WhatsApp Business</h4>
+                        <span class="text-sm md:text-lg font-bold tracking-wide block mt-0.5">Chat Instantly on WhatsApp</span>
+                    </div>
+                </a>
 
                 <!-- Email Element -->
-                <div class="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-orange-500 transition-colors">
-                    <div class="orange-grad p-3 rounded-xl">
+                <a href="mailto:Rendani.rangie@gmail.com" class="flex items-center gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl hover:border-orange-500 transition-colors group">
+                    <div class="orange-grad p-3 rounded-xl group-hover:scale-105 transition-transform">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                         </svg>
                     </div>
                     <div>
                         <h4 class="text-xs uppercase font-bold tracking-wider text-orange-500">Official Correspondence</h4>
-                        <a href="mailto:Rendani.rangie@gmail.com" class="text-sm md:text-lg font-bold hover:underline tracking-wide block mt-0.5 break-all">Rendani.rangie@gmail.com</a>
+                        <span class="text-sm md:text-lg font-bold tracking-wide block mt-0.5 break-all">Rendani.rangie@gmail.com</span>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
 
-        <!-- Right Side: Standard Structured Interactive Form Box -->
+        <!-- Right Side: Interactive Form Box (Emails Straight to you via script) -->
         <div class="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl">
             <h3 class="text-xl font-black uppercase tracking-wide mb-6">Send A Message</h3>
-            <form action="#" class="space-y-5" onsubmit="event.preventDefault();">
+            <form id="contactForm" class="space-y-5">
                 <div>
                     <label class="block text-xs uppercase tracking-widest font-bold mb-2 text-gray-400">Full Name</label>
-                    <input type="text" placeholder="John Doe" class="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 transition">
+                    <input type="text" id="formName" required placeholder="John Doe" class="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 transition">
                 </div>
                 <div>
-                    <label class="block text-xs uppercase tracking-widest font-bold mb-2 text-gray-400">Email Address</label>
-                    <input type="email" placeholder="john@example.com" class="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 transition">
+                    <label class="block text-xs uppercase tracking-widest font-bold mb-2 text-gray-400">Subject</label>
+                    <input type="text" id="formSubject" required placeholder="Project Inquiry / Scaffolding Quote" class="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 transition">
                 </div>
                 <div>
                     <label class="block text-xs uppercase tracking-widest font-bold mb-2 text-gray-400">Message Box</label>
-                    <textarea rows="4" placeholder="Describe your structural engineering or project requirements here..." class="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 transition resize-none"></textarea>
+                    <textarea id="formMessage" rows="4" required placeholder="Describe your structural engineering or project requirements here..." class="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-500 transition resize-none"></textarea>
                 </div>
                 <button type="submit" class="w-full orange-grad py-4 rounded-xl font-bold uppercase text-xs tracking-widest transition-transform hover:scale-[1.02] active:scale-95 shadow-lg">
-                    Dispatch Message
+                    Send Message
                 </button>
             </form>
         </div>
@@ -162,11 +174,11 @@
         </div>
     </footer>
 
-    <!-- Interactive Navigation Engine Component Script -->
+    <!-- Scripts -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Responsive Dropdown Toggle Logic System (Matches about us.html logic exactly)
+        // Mobile Nav Dropdown Toggle Logic System
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -178,13 +190,26 @@
                 : '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>';
         }
         menuToggle.addEventListener('click', toggleMenu);
+
+        // Form Email Redirection Handler Logic
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('formName').value;
+            const subject = document.getElementById('formSubject').value;
+            const message = document.getElementById('formMessage').value;
+            
+            const emailTo = "Rendani.rangie@gmail.com";
+            const emailSubject = encodeURIComponent(`Shangolashu Contact Form: ${subject}`);
+            const emailBody = encodeURIComponent(`Client Name: ${name}\n\nMessage:\n${message}`);
+            
+            // Constructs the dynamic mailto path link structure and hits it
+            window.location.href = `mailto:${emailTo}?subject=${emailSubject}&body=${emailBody}`;
+        });
     </script>
 
 </body>
 </html>
-
-
-
 
 
 
