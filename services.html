@@ -14,7 +14,7 @@
         }
         .glass { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); }
         
-        /* Mobile Menu Animation */
+        /* Mobile Menu Animation (Matches about us.html exactly) */
         #mobile-menu {
             transition: all 0.3s ease-in-out;
             transform: translateY(-100%);
@@ -155,7 +155,7 @@
                         </div>
                         <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light line-clamp-3">
                            HazardChem, a division of Shangolashu, provides reliable and professional hazardous chemical solutions for industrial, construction, and commercial sectors. We specialise in the safe handling, storage, and management of hazardous materials while maintaining high safety and environmental standards. Guided by professionalism and integrity, we are committed to delivering quality service and building lasting client relationships.
-
+                        </p>
                     </div>
                 </div>
 
@@ -183,7 +183,6 @@
                         </div>
                         <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light line-clamp-3">
                             We provide safe and efficient work-at-height solutions using certified rope access techniques. Our trained technicians handle high-rise maintenance, inspections, repairs, and cleaning with precision and minimal disruption. We prioritize safety, speed, and quality in every project—no scaffolding required.
-
                         </p>
                     </div>
                 </div>
@@ -211,7 +210,7 @@
                             <h3 class="text-lg md:text-2xl font-black uppercase text-orange-500 tracking-tight">Air-Conditioner Layout</h3>
                         </div>
                         <p class="text-gray-300 text-xs md:text-sm leading-relaxed font-light line-clamp-3">
-                         Shangolashu specializes in air conditioning installation and servicing, delivering reliable and energy-efficient solutions. We cater to both residential and commercial clients, ensuring comfort and system performance. With a focus on quality and customer satisfaction, we position ourselves as a trusted partner in cooling solutions                        </p>
+                           Shangolashu specializes in air conditioning installation and servicing, delivering reliable and energy-efficient solutions. We cater to both residential and commercial clients, ensuring comfort and system performance. With a focus on quality and customer satisfaction, we position ourselves as a trusted partner in cooling solutions                        </p>
                     </div>
                 </div>
 
@@ -274,7 +273,7 @@
         // Automatic Year update
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile Nav Dropdown System
+        // Mobile Nav Dropdown Toggle Script System (Matches about us.html logic exactly)
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -298,50 +297,50 @@
             else if (index < 0) { currentSlideIndex = slides.length - 1; }
             else { currentSlideIndex = index; }
 
-            slides.forEach((slide, i) => {
-                let offset = i - currentSlideIndex;
-                
-                if (offset < -Math.floor(slides.length / 2)) offset += slides.length;
-                if (offset > Math.floor(slides.length / 2)) offset -= slides.length;
+        	slides.forEach((slide, i) => {
+        		let offset = i - currentSlideIndex;
+        		
+        		if (offset < -Math.floor(slides.length / 2)) offset += slides.length;
+        		if (offset > Math.floor(slides.length / 2)) offset -= slides.length;
 
-                const absOffset = Math.abs(offset);
+        		const absOffset = Math.abs(offset);
 
-                if (absOffset <= 2) {
-                    slide.style.opacity = (absOffset === 0) ? "1" : (absOffset === 1) ? "0.45" : "0.15";
-                    slide.style.visibility = "visible";
-                    
-                    let width = window.innerWidth;
-                    let spacingFactor = 280; 
-                    let rotationAngle = -55; 
+        		if (absOffset <= 2) {
+        			slide.style.opacity = (absOffset === 0) ? "1" : (absOffset === 1) ? "0.45" : "0.15";
+        			slide.style.visibility = "visible";
+        			
+        			let width = window.innerWidth;
+        			let spacingFactor = 280; 
+        			let rotationAngle = -55; 
 
-                    if (width < 640) {
-                        spacingFactor = 70;
-                        rotationAngle = -30;
-                    } else if (width < 1024) {
-                        spacingFactor = 160;
-                        rotationAngle = -45;
-                    }
+        			if (width < 640) {
+        				spacingFactor = 70;
+        				rotationAngle = -30;
+        			} else if (width < 1024) {
+        				spacingFactor = 160;
+        				rotationAngle = -45;
+        			}
 
-                    let transX = offset * spacingFactor;
-                    let rotateY = offset * rotationAngle;
-                    let scale = 1 - (absOffset * 0.18);
-                    let zIndex = 50 - absOffset;
+        			let transX = offset * spacingFactor;
+        			let rotateY = offset * rotationAngle;
+        			let scale = 1 - (absOffset * 0.18);
+        			let zIndex = 50 - absOffset;
 
-                    slide.style.transform = `translateX(calc(-50% + ${transX}px)) scale(${scale}) rotateY(${rotateY}deg)`;
-                    slide.style.zIndex = zIndex;
+        			slide.style.transform = `translateX(calc(-50% + ${transX}px)) scale(${scale}) rotateY(${rotateY}deg)`;
+        			slide.style.zIndex = zIndex;
 
-                    if (offset === 0) {
-                        slide.classList.add('active-focus');
-                    } else {
-                        slide.classList.remove('active-focus');
-                    }
-                } else {
-                    slide.style.opacity = "0";
-                    slide.style.visibility = "hidden";
-                    slide.style.transform = `translateX(-50%) scale(0.5) rotateY(0deg)`;
-                    slide.classList.remove('active-focus');
-                }
-            });
+        			if (offset === 0) {
+        				slide.classList.add('active-focus');
+        			} else {
+        				slide.classList.remove('active-focus');
+        			}
+        		} else {
+        			slide.style.opacity = "0";
+        			slide.style.visibility = "hidden";
+        			slide.style.transform = `translateX(-50%) scale(0.5) rotateY(0deg)`;
+        			slide.classList.remove('active-focus');
+        		}
+        	});
 
             const currentTitle = slides[currentSlideIndex].getAttribute('data-title');
             currentLabel.textContent = currentTitle;
