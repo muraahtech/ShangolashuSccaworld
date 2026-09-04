@@ -57,6 +57,117 @@
                 background-attachment: scroll;
             }
         }
+        <style>
+    /* Orange gradient */
+    .orange-grad {
+        background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+    }
+
+    /* Glass sections */
+    .glass {
+        background: rgba(15, 23, 42, 0.90);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    /*
+     * MAIN PAGE BACKGROUND
+     * The image covers the ENTIRE page,
+     * including Our Mission, About Us, etc.
+     */
+    body {
+        margin: 0;
+        min-height: 100vh;
+
+        background-image:
+            linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.50),
+                rgba(0, 0, 0, 0.50)
+            ),
+            url('jo.jpg');
+
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        color: white;
+    }
+
+    /*
+     * Make sure the main page sections don't
+     * replace the background with white.
+     */
+    main,
+    section {
+        background: transparent;
+    }
+
+    /*
+     * HERO
+     * Uses the same background image.
+     */
+    .hero-bg-container {
+        min-height: 100vh;
+
+        background-image:
+            linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.50),
+                rgba(0, 0, 0, 0.50)
+            ),
+            url('jo.jpg');
+
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    /* Remove separate hero overlay */
+    .hero-overlay {
+        display: none;
+    }
+
+    /* Mobile Menu Animation */
+    #mobile-menu {
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    #mobile-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        body {
+            background-position: 45% center;
+        }
+
+        .hero-bg-container {
+            background-position: 45% center;
+        }
+    }
+
+    /* Phone */
+    @media (max-width: 640px) {
+        body {
+            background-position: 35% center;
+            background-attachment: scroll;
+        }
+
+        .hero-bg-container {
+            min-height: 100vh;
+            background-position: 35% center;
+            background-attachment: scroll;
+        }
+    }
+</style>
     </style>
 </head>
 <body class="bg-[#0F172A] text-white font-sans">
