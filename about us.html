@@ -6,93 +6,71 @@
     <title>About Us | Shangolashu Sccaworld| Building A City</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      <style>
-/* =========================================
-   FULL WEBSITE BACKGROUND
-   ========================================= */
 
-html,
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
+orange-grad { background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); }
+hero-overlay { background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), #0F172A); }
+glass { background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); }
+hero-bg-container {
+hero-bg-container {
+background-image: url('jo.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
 }
 
-body {
-    background-image:
-        linear-gradient(
-            rgba(15, 23, 42, 0.45),
-            rgba(15, 23, 42, 0.45)
-        ),
-        url('jo.jpg');
-
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+.hero-overlay {
+display: none;
+}
 }
 
-/* =========================================
-   IMPORTANT:
-   DO NOT COVER THE IMAGE WITH SOLID BACKGROUNDS
-   ========================================= */
-
-main,
-section,
-#vision,
-#mission,
-.vision-mission,
-.vision-section,
-.mission-section {
-    background-color: transparent !important;
+/* Mobile Menu Animation (Matches index.html exactly) */
+#mobile-menu {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+#mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
 }
 
-/* =========================================
-   VISION + MISSION CONTENT
-   ========================================= */
-
-.glass {
-    background: rgba(15, 23, 42, 0.88);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-/* =========================================
-   HERO
-   ========================================= */
-
+/* Optimized Hero Background Container Layout for Responsiveness */
 .hero-bg-container {
-    min-height: 100vh;
-
-    background-image:
-        linear-gradient(
-            rgba(0, 0, 0, 0.45),
-            rgba(0, 0, 0, 0.45)
-        ),
-        url('jo.jpg');
-
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('jo.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 640px) {
-
-    body {
-        background-position: 35% center;
-        background-attachment: scroll;
+/* Tablet viewpoint adjustments */
+@media (max-width: 1024px) {
+    .hero-bg-container {
+        background-position: 45% center;
     }
+}
 
+/* Mobile viewpoint adjustments */
+@media (max-width: 640px) {
     .hero-bg-container {
         background-position: 35% center;
         background-attachment: scroll;
     }
 }
-</style>
+<style>
+/* Orange gradient */
+.orange-grad {
+background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+}
+
+/* Glass sections */
+.glass {
+background: rgba(15, 23, 42, 0.90);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+}
+
     </style>
 </head>
 <body class="bg-[#0F172A] text-white font-sans">
